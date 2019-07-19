@@ -10,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -18,6 +19,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 3),
     marginBottom: theme.spacing(2),
     textAlign: 'center',
+    maxWidth: 250,
+    boxSizing: 'border-box',
+  },
+  button: {
+    maxWidth: 250,
+    boxSizing: 'border-box',
   },
 }));
 
@@ -73,27 +80,31 @@ function App({ initialGirl }) {
   }
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} s={1}>
-        <h2 className={classes.header}>Who gets to choose?</h2>
-      </Grid>
-      <Grid item xs={12} s={1} m={1} l={1}>
+    <React.Fragment>
+      
+    <Box display="flex" justifyContent="center">
+
+        <h2 className={classes.header}>Who gets to choose???</h2>
+        </Box>
+        <Box display="flex" justifyContent="center">
         <Paper className={classes.card}>
           <h1>{girl ? 'Girl' : 'Boy'}</h1>
         </Paper>
-      </Grid>
-      <Grid item xs={12}>
+        </Box>
+        <Box display="flex" justifyContent="center">
         <Button
           color="primary"
           variant="contained"
           size="large"
           fullWidth
           onClick={handleClick}
+          className={classes.button}
         >
           Use the token
         </Button>
-      </Grid>
-    </Grid>
+
+    </Box>
+    </React.Fragment>
   );
 }
 
